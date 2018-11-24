@@ -17,13 +17,8 @@ function make(ramal, description, _children) {
           /* willUnmount */component[/* willUnmount */6],
           /* willUpdate */component[/* willUpdate */7],
           /* shouldUpdate */component[/* shouldUpdate */8],
-          /* render */(function (self) {
-              return React.createElement("div", {
-                          style: {
-                            backgroundColor: "#444444",
-                            fontSize: "68px"
-                          }
-                        }, React.createElement("h3", undefined, ramal), React.createElement("p", undefined, description));
+          /* render */(function (param) {
+              return React.createElement("div", undefined, React.createElement("h3", undefined, ramal), React.createElement("p", undefined, description));
             }),
           /* initialState */component[/* initialState */10],
           /* retainedProps */component[/* retainedProps */11],

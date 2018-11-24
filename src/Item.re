@@ -2,15 +2,8 @@ let component = ReasonReact.statelessComponent("Item");
 
 let make = (~ramal, ~description, _children) => {
   ...component,
-  render: self =>
-    <div
-      style=(ReactDOMRe.Style.make(
-		      ~backgroundColor="#444444",
-		      ~fontSize="68px", 
-		      ()
-		)
-     )
-    >
+  render: _ =>
+    <div>
       <h3>
      	(ReasonReact.string(ramal))
       </h3>
@@ -19,3 +12,4 @@ let make = (~ramal, ~description, _children) => {
       </p>
     </div>,
 };
+    
