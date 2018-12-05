@@ -2,10 +2,12 @@
 'use strict';
 
 var List = require("bs-platform/lib/js/list.js");
+var $$Array = require("bs-platform/lib/js/array.js");
 var Block = require("bs-platform/lib/js/block.js");
 var Curry = require("bs-platform/lib/js/curry.js");
 var React = require("react");
 var ReasonReact = require("reason-react/src/ReasonReact.js");
+var Ramal$ReactTemplate = require("./Ramal.bs.js");
 var CountItems$ReactTemplate = require("./CountItems.bs.js");
 
 function str(prim) {
@@ -16,8 +18,8 @@ var component = ReasonReact.reducerComponent("TodoApp");
 
 function newItem(param) {
   return /* record */[
-          /* title */"Click a button",
-          /* completed */true
+          /* ramal */1,
+          /* description */"Test"
         ];
 }
 
@@ -34,24 +36,25 @@ function make(children) {
           /* shouldUpdate */component[/* shouldUpdate */8],
           /* render */(function (param) {
               var send = param[/* send */3];
-              var numItems = List.length(param[/* state */1][/* items */0]);
+              var items = param[/* state */1][/* items */0];
+              var numItems = List.length(items);
               return React.createElement("div", undefined, React.createElement("div", {
                               className: "title"
                             }, "What to do", React.createElement("button", {
                                   onClick: (function (_evt) {
                                       return Curry._1(send, /* AddItem */0);
                                     })
-                                }, "Add something")), React.createElement("div", {
-                              className: "items"
-                            }, "Nothing"), React.createElement("div", {
+                                }, "Add +1")), $$Array.of_list(List.map((function (item) {
+                                    return ReasonReact.element(undefined, undefined, Ramal$ReactTemplate.make(item, /* array */[]));
+                                  }), items)), React.createElement("div", {
                               className: "footer"
                             }, ReasonReact.element(undefined, undefined, CountItems$ReactTemplate.make(numItems, /* array */[]))));
             }),
           /* initialState */(function (param) {
               return /* record */[/* items : :: */[
                         /* record */[
-                          /* title */"Write some things to do",
-                          /* completed */false
+                          /* ramal */2,
+                          /* description */"test"
                         ],
                         /* [] */0
                       ]];
@@ -60,8 +63,8 @@ function make(children) {
           /* reducer */(function (action, param) {
               return /* Update */Block.__(0, [/* record */[/* items : :: */[
                             /* record */[
-                              /* title */"Click a button",
-                              /* completed */true
+                              /* ramal */1,
+                              /* description */"Test"
                             ],
                             param[/* items */0]
                           ]]]);

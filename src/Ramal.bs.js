@@ -4,9 +4,13 @@
 var React = require("react");
 var ReasonReact = require("reason-react/src/ReasonReact.js");
 
-var component = ReasonReact.statelessComponent("Item");
+function str(prim) {
+  return prim;
+}
 
-function make(ramal, description, _children) {
+var component = ReasonReact.statelessComponent("Ramal");
+
+function make(item, param) {
   return /* record */[
           /* debugName */component[/* debugName */0],
           /* reactClassInternal */component[/* reactClassInternal */1],
@@ -18,7 +22,7 @@ function make(ramal, description, _children) {
           /* willUpdate */component[/* willUpdate */7],
           /* shouldUpdate */component[/* shouldUpdate */8],
           /* render */(function (param) {
-              return React.createElement("div", undefined, React.createElement("h3", undefined, ramal), React.createElement("p", undefined, description));
+              return React.createElement("div", undefined, React.createElement("h3", undefined, String(item[/* ramal */0])), React.createElement("p", undefined, item[/* description */1]));
             }),
           /* initialState */component[/* initialState */10],
           /* retainedProps */component[/* retainedProps */11],
@@ -27,6 +31,7 @@ function make(ramal, description, _children) {
         ];
 }
 
+exports.str = str;
 exports.component = component;
 exports.make = make;
 /* component Not a pure module */
